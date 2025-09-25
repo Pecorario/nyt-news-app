@@ -1,8 +1,15 @@
+import { GlobalStyle } from './styles/GlobalStyles';
+import { Container } from './components/layouts/Container';
+
 function App() {
   return (
-    <div>
-      <h1>Projeto de Notícias - NYT</h1>
-    </div>
+    <>
+      <GlobalStyle /> 
+
+      <Container>
+        <h1>Projeto de Notícias - NYT</h1>
+      </Container>
+    </>
   );
 }
 
