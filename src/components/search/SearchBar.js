@@ -3,11 +3,12 @@ import { ArticlesContext } from '../../context/ArticlesContext';
 import * as S from './SearchBar.styles';
 
 export function SearchBar() {
-  const { searchValue, setSearchValue } = useContext(ArticlesContext);
+  const { searchValue, setSearchValue, fetchArticles } =
+    useContext(ArticlesContext);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('termo buscado: ', searchValue);
+    fetchArticles(searchValue);
   }
   return (
     <S.SearchForm onSubmit={handleSubmit}>
