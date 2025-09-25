@@ -32,7 +32,7 @@ Siga os passos abaixo para rodar o projeto na sua máquina.
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/Pecorario/nyt-news-app.git](https://github.com/Pecorario/nyt-news-app.git)
+    git clone https://github.com/Pecorario/nyt-news-app.git
     ```
 
 2.  **Navegue até a pasta do projeto:**
