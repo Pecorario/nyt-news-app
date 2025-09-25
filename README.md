@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Busca de Notícias - New York Times
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação front-end desenvolvida como parte da disciplina de Programação Web Fullstack (ES47B-ES71) da Universidade Tecnológica Federal do Paraná (UTFPR), Campus Cornélio Procópio.
 
-## Available Scripts
+A aplicação consiste em um buscador de artigos que consome a API do New York Times. A interface foi construída seguindo o conceito de SPA (Single Page Application) com React.js e permite aos usuários pesquisar por um termo, visualizar os resultados e receber feedback visual durante o carregamento ou em caso de erro.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Busca dinâmica:** Pesquise artigos por qualquer termo.
+- **Feedback de Interface:** Exibição de status de "Carregando..." durante a busca e mensagens de erro.
+- **Listagem de Resultados:** Apresentação dos artigos encontrados em formato de cards clicáveis.
+- **Segurança:** A chave da API é armazenada de forma segura em um arquivo de ambiente.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tecnologias Utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React.js:** Biblioteca principal para a construção da interface.
+- **Styled Components:** Para estilização dos componentes de forma isolada.
+- **Axios:** Para realizar as requisições HTTP (AJAX) para a API.
+- **Context API:** Para gerenciamento do estado global da aplicação.
+- **Git & GitHub:** Para versionamento e hospedagem do código-fonte.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Como Executar o Projeto Localmente
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Siga os passos abaixo para rodar o projeto na sua máquina.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.  **Clone o repositório:**
 
-### `npm run eject`
+    ```bash
+    git clone [https://github.com/Pecorario/nyt-news-app.git](https://github.com/Pecorario/nyt-news-app.git)
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.  **Navegue até a pasta do projeto:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    cd nyt-news-app
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3.  **Instale as dependências:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```bash
+    npm install
+    ```
 
-## Learn More
+4.  **Configure as variáveis de ambiente:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - Crie um arquivo chamado `.env` na raiz do projeto.
+    - Dentro dele, adicione sua chave da API do New York Times, como no exemplo abaixo:
+      ```
+      REACT_APP_NYT_API_KEY=SUA_CHAVE_DA_API_AQUI
+      ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5.  **Inicie a aplicação:**
 
-### Code Splitting
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    A aplicação estará disponível em `http://localhost:3000`.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
