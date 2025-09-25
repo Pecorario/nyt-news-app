@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ArticlesContext } from '../../context/ArticlesContext';
 import * as S from './SearchBar.styles';
 
 export function SearchBar() {
-  const [searchValue, setSearchValue] = useState('');
+  const { searchValue, setSearchValue } = useContext(ArticlesContext);
 
   function handleSubmit(e) {
     e.preventDefault();
