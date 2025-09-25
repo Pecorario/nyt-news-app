@@ -1,6 +1,7 @@
 import { GlobalStyle } from './styles/GlobalStyles';
 import { Container } from './components/layouts/Container';
 import { SearchBar } from './components/search/SearchBar';
+import { ArticleList } from './components/articles/ArticleList';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Container>
         <h1>Projeto de Notícias - NYT</h1>
         <SearchBar />
+        <ArticleList />
       </Container>
     </>
   );
