@@ -5,7 +5,7 @@ import { SearchBar } from './components/search/SearchBar';
 function App() {
   return (
     <>
-      <GlobalStyle /> 
+      <GlobalStyle />
 
       <Container>
         <h1>Projeto de Notícias - NYT</h1>
