@@ -1,51 +1,66 @@
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
 import axios from 'axios';
 
-export const ArticlesContext = createContext({
+export const ArticlesContext = createContext();
+
+const initialState = {
   searchValue: '',
-  setSearchValue: () => {},
   articles: [],
   isLoading: false,
   error: null,
-  fetchArticles: () => {},
-});
+};
+
+function articlesReducer(state, action) {
+  switch (action.type) {
+    case 'SET_SEARCH':
+      return { ...state, searchValue: action.payload };
+
+    case 'FETCH_START':
+      return { ...state, isLoading: true, error: null, articles: [] };
+
+    case 'FETCH_SUCCESS':
+      return { ...state, isLoading: false, articles: action.payload };
+
+    case 'FETCH_ERROR':
+      return { ...state, isLoading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+}
 
 export function ArticlesProvider({ children }) {
-  const [searchValue, setSearchValue] = useState('');
-  const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [state, dispatch] = useReducer(articlesReducer, initialState);
 
   const API_KEY = process.env.REACT_APP_NYT_API_KEY;
 
   async function fetchArticles(query) {
     if (!query) {
-      setError('Por favor digite algo na caixa de pesquisa');
+      dispatch({ type: 'FETCH_ERROR', payload: 'Por favor digite algo na caixa de pesquisa' });
       return;
     }
 
-    setIsLoading(true);
-    setError(null);
-    setArticles([]);
+    dispatch({ type: 'FETCH_START' });
 
     try {
       const response = await axios.get(
         `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${API_KEY}`
       );
-      setArticles(response.data.response.docs);
+      dispatch({ type: 'FETCH_SUCCESS', payload: response.data.response.docs });
     } catch (err) {
-      setError('Falha ao pesquisar os artigos. Tente novamente mais tarde.');
-    } finally {
-      setIsLoading(false);
+      dispatch({
+        type: 'FETCH_ERROR',
+        payload: 'Falha ao pesquisar os artigos. Tente novamente mais tarde.',
+      });
     }
   }
 
   const contextValue = {
-    searchValue,
-    setSearchValue,
-    articles,
-    isLoading,
-    error,
+    searchValue: state.searchValue,
+    setSearchValue: (val) => dispatch({ type: 'SET_SEARCH', payload: val }),
+    articles: state.articles,
+    isLoading: state.isLoading,
+    error: state.error,
     fetchArticles,
   };
 

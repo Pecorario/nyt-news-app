@@ -1,4 +1,4 @@
-import { GlobalStyle } from './styles/GlobalStyles';
+import { GlobalStyle } from './GlobalStyles';
 import { Container } from './components/layouts/Container';
 import { SearchBar } from './components/search/SearchBar';
 import { ArticleList } from './components/articles/ArticleList';
